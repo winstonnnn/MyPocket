@@ -7,3 +7,6 @@ val Green100 = Color(0XFF438883)
 val LightGreen100 = Color(0xff63B5AF)
 val White100 = Color(0xffFFFFFF)
 val Black100 = Color(0xff000000)
+
+
+val Black44 = Color(0XFF444444)
