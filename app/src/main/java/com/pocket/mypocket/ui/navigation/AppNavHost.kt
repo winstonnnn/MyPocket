@@ -1,5 +1,6 @@
 package com.pocket.mypocket.ui.navigation
 
+import androidx.compose.animation.ExitTransition
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
@@ -15,11 +16,11 @@ fun AppNavHost(
 ) {
     NavHost(
         navHostController,
-        startDestination = OnBoarding,
+        startDestination = Splash,
         modifier = modifier
     ) {
-        composable<Splash> {
-            SplashScreen()
+        composable<Splash>{
+            SplashScreen(navHostController)
         }
 
         composable<OnBoarding> {
