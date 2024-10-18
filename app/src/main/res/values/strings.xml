@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">MyPocket</string>
+    <string name="onboarding_banner_text">Lets Spend Our\nMoney Wisely</string>
+    <string name="onboarding_get_started">Get Started</string>
+    <string name="onboarding_login_text1">Already Have Account?</string>
+    <string name="onboarding_login_text2">Log In</string>
 </resources>

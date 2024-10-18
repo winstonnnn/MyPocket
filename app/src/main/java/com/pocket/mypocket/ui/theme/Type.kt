@@ -37,3 +37,11 @@ val Typography = Typography(
     )
     */
 )
+
+val regularStyle = TextStyle(
+    fontFamily = Inter_regular
+)
+
+val boldStyle = TextStyle(
+    fontFamily = Inter_bold
+)
