@@ -58,7 +58,9 @@ fun OnBoardingScreen(modifier: Modifier = Modifier) {
 
         PrimaryButton(
             text = stringResource(R.string.onboarding_get_started)
-        )
+        ) {
+            //TODO()
+        }
 
         VerticalSpacer(.1f)
 
