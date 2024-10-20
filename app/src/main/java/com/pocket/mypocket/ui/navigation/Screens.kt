@@ -7,3 +7,6 @@ object Splash
 
 @Serializable
 object OnBoarding
+
+@Serializable
+object Home

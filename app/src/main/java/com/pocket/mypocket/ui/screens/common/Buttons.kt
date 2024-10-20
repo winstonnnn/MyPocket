@@ -1,6 +1,7 @@
 package com.pocket.mypocket.ui.screens.common
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -19,7 +20,8 @@ import com.pocket.mypocket.ui.theme.regularStyle
 @Composable
 fun PrimaryButton(
     text: String,
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
+    onclick: () -> Unit
 ) {
     Box(
         modifier = modifier
@@ -33,7 +35,8 @@ fun PrimaryButton(
                     )
                 ),
                 shape = RoundedCornerShape(33.dp)
-            ),
+            )
+            .clickable { onclick() },
         contentAlignment = Alignment.Center
     ) {
         Text(

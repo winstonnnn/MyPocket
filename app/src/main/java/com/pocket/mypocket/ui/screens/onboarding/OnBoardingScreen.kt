@@ -23,7 +23,7 @@ import com.pocket.mypocket.R
 import com.pocket.mypocket.ui.screens.common.HorizontalSpacer
 import com.pocket.mypocket.ui.screens.common.PrimaryButton
 import com.pocket.mypocket.ui.screens.common.VerticalSpacer
-import com.pocket.mypocket.ui.theme.Black44
+import com.pocket.mypocket.ui.theme.Black4444
 import com.pocket.mypocket.ui.theme.boldStyle
 import com.pocket.mypocket.ui.theme.regularStyle
 
@@ -58,7 +58,9 @@ fun OnBoardingScreen(modifier: Modifier = Modifier) {
 
         PrimaryButton(
             text = stringResource(R.string.onboarding_get_started)
-        )
+        ) {
+            //TODO()
+        }
 
         VerticalSpacer(.1f)
 
@@ -67,7 +69,7 @@ fun OnBoardingScreen(modifier: Modifier = Modifier) {
                 text = stringResource(R.string.onboarding_login_text1),
                 style = regularStyle.copy(
                     fontSize = 14.sp,
-                    color = Black44
+                    color = Black4444
                 )
             )
 

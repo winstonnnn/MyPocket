@@ -4,4 +4,10 @@
     <string name="onboarding_get_started">Get Started</string>
     <string name="onboarding_login_text1">Already Have Account?</string>
     <string name="onboarding_login_text2">Log In</string>
+    <string name="home_greet_default">Good day,</string>
+    <string name="home_card_label_total_balance">Total Balance</string>
+    <string name="cash_flow_income">Income</string>
+    <string name="cash_flow_expenses">Expenses</string>
+    <string name="home_transaction_history">Transaction History</string>
+    <string name="home_transaction_see_all">See All</string>
 </resources>
