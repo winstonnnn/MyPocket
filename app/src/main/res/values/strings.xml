@@ -8,4 +8,6 @@
     <string name="home_card_label_total_balance">Total Balance</string>
     <string name="cash_flow_income">Income</string>
     <string name="cash_flow_expenses">Expenses</string>
+    <string name="home_transaction_history">Transaction History</string>
+    <string name="home_transaction_see_all">See All</string>
 </resources>
