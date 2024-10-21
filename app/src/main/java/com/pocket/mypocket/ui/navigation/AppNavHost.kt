@@ -1,6 +1,5 @@
 package com.pocket.mypocket.ui.navigation
 
-import androidx.compose.animation.ExitTransition
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
@@ -13,23 +12,25 @@ import com.pocket.mypocket.ui.screens.splash.SplashScreen
 @Composable
 fun AppNavHost(
     modifier: Modifier = Modifier,
-    navHostController: NavHostController
+    navHostController: NavHostController,
+    onShowBottomNavigationBar: () -> Unit
 ) {
     NavHost(
         navHostController,
-        startDestination = Home,
+        startDestination = SplashScreen,
         modifier = modifier
     ) {
-        composable<Splash>{
+        composable<SplashScreen>{
             SplashScreen(navHostController)
         }
 
-        composable<OnBoarding> {
-            OnBoardingScreen()
+        composable<OnBoardingScreen> {
+            OnBoardingScreen(navHostController)
         }
 
-        composable<Home> {
-            HomeScreen()
+        composable<HomeScreen> {
+            onShowBottomNavigationBar()
+            HomeScreen(navHostController)
         }
     }
 }

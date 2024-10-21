@@ -3,11 +3,16 @@ package com.pocket.mypocket.ui.activity
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.navigationBarsPadding
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.core.view.WindowCompat
 import androidx.navigation.compose.rememberNavController
 import com.pocket.mypocket.ui.navigation.AppNavHost
+import com.pocket.mypocket.ui.navigation.BottomNavigationBar
 import com.pocket.mypocket.ui.theme.MyPocketTheme
 
 
@@ -19,10 +24,28 @@ class MainActivity : ComponentActivity() {
         setContent {
             MyPocketTheme {
                 val navHostController = rememberNavController()
-                AppNavHost(
-                    navHostController = navHostController,
-                    modifier = Modifier.fillMaxSize()
-                )
+                val isShowBottomNavigationBar = remember {
+                    mutableStateOf(false)
+                }
+
+                Column(
+                    modifier = Modifier
+                        .navigationBarsPadding()
+                ) {
+                    AppNavHost(
+                        navHostController = navHostController,
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .weight(1f),
+                        onShowBottomNavigationBar = {
+                            isShowBottomNavigationBar.value = true
+                        }
+                    )
+
+                    if (isShowBottomNavigationBar.value) {
+                        BottomNavigationBar(navHostController)
+                    }
+                }
             }
         }
     }

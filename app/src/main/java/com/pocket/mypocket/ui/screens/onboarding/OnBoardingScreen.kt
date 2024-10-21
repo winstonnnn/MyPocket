@@ -19,7 +19,9 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavHostController
 import com.pocket.mypocket.R
+import com.pocket.mypocket.ui.navigation.HomeScreen
 import com.pocket.mypocket.ui.screens.common.HorizontalSpacer
 import com.pocket.mypocket.ui.screens.common.PrimaryButton
 import com.pocket.mypocket.ui.screens.common.VerticalSpacer
@@ -28,7 +30,21 @@ import com.pocket.mypocket.ui.theme.boldStyle
 import com.pocket.mypocket.ui.theme.regularStyle
 
 @Composable
-fun OnBoardingScreen(modifier: Modifier = Modifier) {
+fun OnBoardingScreen(
+    navHostController: NavHostController
+) {
+    OnBoardingScreen(
+        onNavigateHome = {
+            navHostController.navigate(HomeScreen)
+        }
+    )
+}
+
+@Composable
+fun OnBoardingScreen(
+    modifier: Modifier = Modifier,
+    onNavigateHome: () -> Unit
+) {
     Column(
         modifier = modifier
             .fillMaxSize(),
@@ -59,7 +75,7 @@ fun OnBoardingScreen(modifier: Modifier = Modifier) {
         PrimaryButton(
             text = stringResource(R.string.onboarding_get_started)
         ) {
-            //TODO()
+            onNavigateHome()
         }
 
         VerticalSpacer(.1f)
@@ -88,7 +104,7 @@ fun OnBoardingScreen(modifier: Modifier = Modifier) {
 
 @Preview
 @Composable
-private fun preview() {
-    Surface { OnBoardingScreen() }
+private fun Preview() {
+    Surface { OnBoardingScreen(){} }
 
 }
