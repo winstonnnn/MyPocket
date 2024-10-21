@@ -76,7 +76,6 @@ fun HomeTransactionHistory(
 
         LazyColumn(
             modifier = Modifier
-                .padding(bottom = 50.dp)
         ) {
             items(10) {
                 TransactionHistoryItem(

@@ -1,5 +1,6 @@
 package com.pocket.mypocket.ui.screens.home
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -7,10 +8,14 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavHostController
 import com.pocket.mypocket.ui.screens.common.CommonTopCurveBackground
 import com.pocket.mypocket.ui.screens.common.VerticalSpacer
 import com.pocket.mypocket.ui.screens.home.components.Greeting
@@ -19,10 +24,20 @@ import com.pocket.mypocket.ui.screens.home.components.HomeReloadButton
 import com.pocket.mypocket.ui.screens.home.components.HomeTransactionHistory
 
 @Composable
-fun HomeScreen(modifier: Modifier = Modifier) {
+fun HomeScreen(
+    navHostController: NavHostController,
+    modifier: Modifier = Modifier
+) {
+    HomeScreen()
+}
+@Composable
+fun HomeScreen(
+    modifier: Modifier = Modifier
+) {
     Box(
         modifier = modifier
             .fillMaxSize()
+            .background(MaterialTheme.colorScheme.tertiary)
     ) {
         CommonTopCurveBackground()
 
@@ -53,6 +68,14 @@ fun HomeScreen(modifier: Modifier = Modifier) {
             )
         }
 
+    }
+}
+
+@Preview
+@Composable
+private fun PreviewHome() {
+    Surface {
+        HomeScreen()
     }
 }
 

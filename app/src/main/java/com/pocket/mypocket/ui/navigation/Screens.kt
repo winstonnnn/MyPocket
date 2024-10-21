@@ -3,10 +3,19 @@ package com.pocket.mypocket.ui.navigation
 import kotlinx.serialization.Serializable
 
 @Serializable
-object Splash
+object SplashScreen
 
 @Serializable
-object OnBoarding
+object OnBoardingScreen
 
 @Serializable
-object Home
+object HomeScreen
+
+@Serializable
+object ChartScreen
+
+@Serializable
+object AssetScreen
+
+@Serializable
+object UserScreen
