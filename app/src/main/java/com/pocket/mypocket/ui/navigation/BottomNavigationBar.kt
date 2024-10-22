@@ -11,51 +11,48 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.offset
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.currentBackStackEntryAsState
-import androidx.navigation.toRoute
 import com.pocket.mypocket.R
 
 @Composable
 fun BottomNavigationBar(
-    navHostController: NavHostController,
-    modifier: Modifier = Modifier
+    navHostController: NavHostController
 ) {
     val currentRoute by navHostController.currentBackStackEntryAsState()
 
     BottomNavigationBar(
-        currentRoute = currentRoute?.toRoute() ?: BottomNavigationScreens.HomeScreen,
+        currentRoute = currentRoute?.destination?.route ?: BottomNavigationScreens.Home.route::class.qualifiedName,
         onNavItemClick = { route ->
-            navHostController.navigate(route){
+            navHostController.navigate(route.route){
                 popUpTo(navHostController.graph.startDestinationId) { saveState = true }
                 launchSingleTop = true
                 restoreState = true
             }
         }
     )
+
 }
 @Composable
 fun BottomNavigationBar(
-    currentRoute: BottomNavigationScreens,
-    onNavItemClick: (route: BottomNavigationScreens)-> Unit,
+    currentRoute: String?,
+    onNavItemClick: (route: BottomNavigationScreens<out Any>)-> Unit,
     modifier: Modifier = Modifier
 ) {
 
     val items = listOf(
-        BottomNavigationScreens.HomeScreen,
-        BottomNavigationScreens.ChartScreen,
-        BottomNavigationScreens.AssetScreen,
-        BottomNavigationScreens.UserScreen,
+        BottomNavigationScreens.Home,
+        BottomNavigationScreens.Chart,
+        BottomNavigationScreens.Asset,
+        BottomNavigationScreens.User,
     )
 
     Box(
@@ -78,16 +75,16 @@ fun BottomNavigationBar(
             verticalAlignment = Alignment.CenterVertically
         ) {
             items.forEach { item ->
-                println("testtest " + currentRoute + " " +item)
-                BottomBavBarItem(
+                val itemRoute = item.route::class.qualifiedName
+
+                BottomNavBarItem(
                     defaultIcon = item.defaultIcon,
                     selectedIcon = item.selectedIcon,
-                    isSelected = currentRoute == item,
+                    isSelected = currentRoute == itemRoute,
                     onNavItemClick = {
-                        if (currentRoute != item) {
+                        if (currentRoute != itemRoute) {
                             onNavItemClick(item)
                         }
-                        onNavItemClick(item)
                     }
                 )
             }
@@ -96,7 +93,7 @@ fun BottomNavigationBar(
 }
 
 @Composable
-private fun BottomBavBarItem(
+private fun BottomNavBarItem(
     modifier: Modifier = Modifier,
     defaultIcon: Int,
     selectedIcon: Int,
@@ -128,7 +125,7 @@ private fun BottomBavBarItem(
 @Composable
 private fun PreviewNavigationBar() {
     BottomNavigationBar(
-        BottomNavigationScreens.HomeScreen,
+        BottomNavigationScreens.Home.route::class.qualifiedName,
         onNavItemClick = {}
     )
 }
