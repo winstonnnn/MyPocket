@@ -16,6 +16,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
+import com.pocket.mypocket.ui.screens.common.CommonPagesHorizontalPadding
 import com.pocket.mypocket.ui.screens.common.CommonTopCurveBackground
 import com.pocket.mypocket.ui.screens.common.VerticalSpacer
 import com.pocket.mypocket.ui.screens.home.components.Greeting
@@ -25,8 +26,7 @@ import com.pocket.mypocket.ui.screens.home.components.HomeTransactionHistory
 
 @Composable
 fun HomeScreen(
-    navHostController: NavHostController,
-    modifier: Modifier = Modifier
+    navHostController: NavHostController
 ) {
     HomeScreen()
 }
@@ -43,7 +43,7 @@ fun HomeScreen(
 
         Column(
             modifier = Modifier
-                .padding(horizontal = 24.dp)
+                .padding(horizontal = CommonPagesHorizontalPadding)
                 .padding(top = 74.dp)
         ) {
             Row(
