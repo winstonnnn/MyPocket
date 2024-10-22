@@ -33,7 +33,6 @@ fun BottomNavigationBar(
         currentRoute = currentRoute?.destination?.route ?: BottomNavigationScreens.Home.route::class.qualifiedName,
         onNavItemClick = { route ->
             navHostController.navigate(route.route){
-                popUpTo(navHostController.graph.startDestinationId) { saveState = true }
                 launchSingleTop = true
                 restoreState = true
             }
