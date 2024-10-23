@@ -5,6 +5,7 @@ import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
+import com.pocket.mypocket.ui.screens.chart.ChartScreen
 import com.pocket.mypocket.ui.screens.home.HomeScreen
 import com.pocket.mypocket.ui.screens.onboarding.OnBoardingScreen
 import com.pocket.mypocket.ui.screens.splash.SplashScreen
@@ -17,7 +18,7 @@ fun AppNavHost(
 ) {
     NavHost(
         navHostController,
-        startDestination = SplashScreen,
+        startDestination = ChartScreen,
         modifier = modifier
     ) {
         composable<SplashScreen>{
@@ -31,6 +32,10 @@ fun AppNavHost(
         composable<HomeScreen> {
             onShowBottomNavigationBar()
             HomeScreen(navHostController)
+        }
+
+        composable<ChartScreen> {
+            ChartScreen(navHostController)
         }
     }
 }
