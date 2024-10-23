@@ -18,7 +18,7 @@ fun AppNavHost(
 ) {
     NavHost(
         navHostController,
-        startDestination = ChartScreen,
+        startDestination = SplashScreen,
         modifier = modifier
     ) {
         composable<SplashScreen>{
