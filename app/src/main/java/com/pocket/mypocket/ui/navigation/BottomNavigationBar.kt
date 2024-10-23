@@ -19,6 +19,7 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.currentBackStackEntryAsState
 import com.pocket.mypocket.R
@@ -33,6 +34,9 @@ fun BottomNavigationBar(
         currentRoute = currentRoute?.destination?.route ?: BottomNavigationScreens.Home.route::class.qualifiedName,
         onNavItemClick = { route ->
             navHostController.navigate(route.route){
+                popUpTo(navHostController.graph.findStartDestination().id) {
+                    saveState = true
+                }
                 launchSingleTop = true
                 restoreState = true
             }
