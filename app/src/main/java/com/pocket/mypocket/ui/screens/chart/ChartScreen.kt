@@ -12,6 +12,8 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import com.pocket.mypocket.R
+import com.pocket.mypocket.ui.common.CashFlow
+import com.pocket.mypocket.ui.screens.chart.components.ChartCashFlowDropDown
 import com.pocket.mypocket.ui.screens.chart.components.ChartDatePeriodTabs
 import com.pocket.mypocket.ui.screens.common.CommonPagesHorizontalPadding
 import com.pocket.mypocket.ui.screens.common.CommonPagesTitleSize
@@ -22,11 +24,16 @@ import com.pocket.mypocket.ui.theme.regularStyle
 
 @Composable
 fun ChartScreen(navHostController: NavHostController) {
-    ChartScreen()
+    ChartScreen(
+        onCashFlowItemSelected = {}
+    )
 }
 
 @Composable
-fun ChartScreen(modifier: Modifier = Modifier) {
+fun ChartScreen(
+    modifier: Modifier = Modifier,
+    onCashFlowItemSelected: (cashFlow: CashFlow) -> Unit
+) {
     Column(
         modifier = modifier
             .padding(top = CommonTopPadding)
@@ -45,11 +52,21 @@ fun ChartScreen(modifier: Modifier = Modifier) {
         VerticalSpacer(30.dp)
 
         ChartDatePeriodTabs()
+
+        VerticalSpacer(26.dp)
+
+        ChartCashFlowDropDown(
+            modifier = Modifier
+                .align(Alignment.End),
+            onItemSelected = { onCashFlowItemSelected(it) }
+        )
     }
 }
 
 @Preview
 @Composable
 private fun PreviewChartScreen() {
-    ChartScreen()
+    ChartScreen(
+        onCashFlowItemSelected = {}
+    )
 }
