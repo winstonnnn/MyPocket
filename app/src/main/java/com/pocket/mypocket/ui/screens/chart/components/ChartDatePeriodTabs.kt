@@ -1,7 +1,5 @@
 package com.pocket.mypocket.ui.screens.chart.components
 
-import androidx.compose.foundation.clickable
-import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Row
@@ -24,6 +22,7 @@ import com.pocket.mypocket.ui.screens.common.AnimatedTabIndicator
 import com.pocket.mypocket.ui.theme.ChartTabSelectedTextColor
 import com.pocket.mypocket.ui.theme.ChartTabUnSelectedTextColor
 import com.pocket.mypocket.ui.theme.regularStyle
+import com.pocket.mypocket.ui.utils.clickableNoRipple
 
 @Composable
 fun ChartDatePeriodTabs(modifier: Modifier = Modifier) {
@@ -71,10 +70,7 @@ private fun TabItem(
         modifier = modifier
             .height(40.dp)
             .width(90.dp)
-            .clickable(
-                indication = null,
-                interactionSource = remember { MutableInteractionSource() }
-            ) { onItemClick() },
+            .clickableNoRipple { onItemClick() },
         contentAlignment = Alignment.Center
     ) {
         Text(

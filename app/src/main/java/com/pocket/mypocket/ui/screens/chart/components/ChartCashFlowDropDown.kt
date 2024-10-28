@@ -2,8 +2,6 @@ package com.pocket.mypocket.ui.screens.chart.components
 
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.border
-import androidx.compose.foundation.clickable
-import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Row
@@ -35,6 +33,7 @@ import androidx.compose.ui.unit.sp
 import com.pocket.mypocket.ui.common.CashFlow
 import com.pocket.mypocket.ui.theme.Black6666
 import com.pocket.mypocket.ui.theme.regularStyle
+import com.pocket.mypocket.ui.utils.clickableNoRipple
 
 @Composable
 fun ChartCashFlowDropDown(
@@ -61,10 +60,7 @@ fun ChartCashFlowDropDown(
         Row(
             modifier = Modifier
                 .fillMaxWidth()
-                .clickable(
-                    indication = null,
-                    interactionSource = remember { MutableInteractionSource() }
-                ) {
+                .clickableNoRipple {
                     expanded = !expanded
                 },
             horizontalArrangement = Arrangement.SpaceEvenly,
