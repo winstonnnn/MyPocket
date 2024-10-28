@@ -1,7 +1,9 @@
 package com.pocket.mypocket.ui.screens.chart
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.padding
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -14,7 +16,9 @@ import androidx.navigation.NavHostController
 import com.pocket.mypocket.R
 import com.pocket.mypocket.ui.common.CashFlow
 import com.pocket.mypocket.ui.screens.chart.components.ChartCashFlowDropDown
+import com.pocket.mypocket.ui.screens.chart.components.ChartDataDisplay
 import com.pocket.mypocket.ui.screens.chart.components.ChartDatePeriodTabs
+import com.pocket.mypocket.ui.screens.chart.components.ChartSortedTransactionList
 import com.pocket.mypocket.ui.screens.common.CommonPagesHorizontalPadding
 import com.pocket.mypocket.ui.screens.common.CommonPagesTitleSize
 import com.pocket.mypocket.ui.screens.common.CommonTopPadding
@@ -36,6 +40,7 @@ fun ChartScreen(
 ) {
     Column(
         modifier = modifier
+            .background(MaterialTheme.colorScheme.tertiary)
             .padding(top = CommonTopPadding)
             .padding(horizontal = CommonPagesHorizontalPadding),
         horizontalAlignment = Alignment.CenterHorizontally
@@ -60,6 +65,14 @@ fun ChartScreen(
                 .align(Alignment.End),
             onItemSelected = { onCashFlowItemSelected(it) }
         )
+
+        VerticalSpacer(10.dp)
+
+        ChartDataDisplay()
+
+        VerticalSpacer(50.dp)
+
+        ChartSortedTransactionList(CashFlow.EXPENSES)
     }
 }
 

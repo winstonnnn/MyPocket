@@ -11,4 +11,6 @@
     <string name="home_transaction_history">Transaction History</string>
     <string name="home_transaction_see_all">See All</string>
     <string name="chart_title">Chart Details</string>
+    <string name="chart_top_expenses_label">Top Expenses</string>
+    <string name="chart_top_income_label">Top Income</string>
 </resources>
