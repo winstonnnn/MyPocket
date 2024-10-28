@@ -14,7 +14,8 @@ import com.pocket.mypocket.ui.screens.splash.SplashScreen
 fun AppNavHost(
     modifier: Modifier = Modifier,
     navHostController: NavHostController,
-    onShowBottomNavigationBar: () -> Unit
+    onShowBottomNavigationBar: () -> Unit,
+    setStatusBarTextColorIsDark: (isDark: Boolean) -> Unit,
 ) {
     NavHost(
         navHostController,
@@ -22,19 +23,23 @@ fun AppNavHost(
         modifier = modifier
     ) {
         composable<SplashScreen>{
+            setStatusBarTextColorIsDark(false)
             SplashScreen(navHostController)
         }
 
         composable<OnBoardingScreen> {
+            setStatusBarTextColorIsDark(true)
             OnBoardingScreen(navHostController)
         }
 
         composable<HomeScreen> {
+            setStatusBarTextColorIsDark(false)
             onShowBottomNavigationBar()
             HomeScreen(navHostController)
         }
 
         composable<ChartScreen> {
+            setStatusBarTextColorIsDark(true)
             ChartScreen(navHostController)
         }
     }

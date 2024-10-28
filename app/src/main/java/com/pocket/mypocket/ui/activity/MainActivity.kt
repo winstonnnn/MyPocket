@@ -14,6 +14,7 @@ import androidx.navigation.compose.rememberNavController
 import com.pocket.mypocket.ui.navigation.AppNavHost
 import com.pocket.mypocket.ui.navigation.BottomNavigationBar
 import com.pocket.mypocket.ui.theme.MyPocketTheme
+import com.pocket.mypocket.ui.utils.changeStatusBarTextColor
 
 
 class MainActivity : ComponentActivity() {
@@ -39,6 +40,9 @@ class MainActivity : ComponentActivity() {
                             .weight(1f),
                         onShowBottomNavigationBar = {
                             isShowBottomNavigationBar.value = true
+                        },
+                        setStatusBarTextColorIsDark = { isDark ->
+                            changeStatusBarTextColor(isDark)
                         }
                     )
 
